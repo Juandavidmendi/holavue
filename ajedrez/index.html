@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajedrez</title>
+    <link rel="icon" href="images/logo.jpeg">
+     <!-- Font awesome cdn link-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <!--Custom css file link-->
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- inicio componente header -->
+    <header id="header" class="header"></header>
+    <script>
+    const header = Vue.createApp({
+        data(){
+            return {
+                text: "Hola vue",
+                href: "href",
+                class: "class",
+                src: "src",
+                id: "id",
+                src: "src",
+                joke: {
+                    taza: 'logo.jpeg'
+                },
+                section: "flex",
+                logo: "logo"
+            };
+        },
+        template: `
+        <section class="flex">
+            <a href="" class="logo">
+                <img v-bind:src="'images/' + joke.taza" /> 
+            </a>
+            <nav class="navbar">
+                <a href="#inicio">inicio</a>
+                <a href="#acerca">Historia</a>
+                <a href="#menu">Fichas</a>
+                <a href="#galeria">Campeones</a>
+            </nav>
+            <div id="menu-btn" @:click="enviar" class="fas fa-bars"></div>
+        </section>`
+    }).mount("#header");
+        let menu1 = document.querySelector('#menu-btn');
+        let navbar = document.querySelector('.header .flex .navbar');
+
+        menu1.onclick = () =>{
+        menu1.classList.toggle('fa-times');
+        navbar.classList.toggle('active');
+        }    
+    </script>
+    <!-- fin componente header -->
+    <!-- inicio componente home -->
+    <div id="inicio" class="home-bg"></div>
+    <script>
+        const inicio = Vue.createApp({
+        data(){
+            return {
+                text: "Ajedrez",
+                parrafo: "Estrategìa<br>Es uno de los deportes màs antiguos del mundo 🚀 <a href='https://es.wikipedia.org/wiki/Ajedrez'> @Ajedrez </a><br>✨El ajedrez es la bsuqueda de la verdad y yo estoy en busqueda de la verdad. --Bobby Fischer.🤛🏻",
+                href: "href",
+                class: "class",
+                src: "src",
+                id: "id",
+                src: "src",
+                joke: {
+                    taza: '.jpg'
+                },
+                section: "flex",
+                logo: "logo"
+            };
+        },
+        template: `
+            <section class="home" id="home">
+                <div class="content">
+                    <h3 v-text="text"></h3>
+                    <p v-html="parrafo"></p>
+                    <a href="#acerca" class="btn">Historìa</a>
+                </div>
+            </section>
+       `
+    }).mount("#inicio");
+    </script>
+    <!-- fin componente home -->
+    <!-- inicio componente header -->
+    <section class="about" id="acerca">
+    </section>
+    <script>
+        const acerca = Vue.createApp({
+        data(){
+            return {
+                text: "Historìa del Ajedrez ",
+                parrafo: "El ajedrez es un juego de tablero entre dos contrincantes en el que cada uno dispone al inicio de 16 piezas móviles que se colocan sobre un tablero, dividido en 64 casillas o escaques.2 En su versión de competición, está considerado como un deporte, aunque en la actualidad tiene claramente una dimensión social, educativa y terapéutica.",
+                href: "href",
+                class: "class",
+                src: "src",
+                id: "id",
+                src: "src",
+                joke: {
+                    taza: 'ilustracion.jpeg'
+                },
+                section: "flex",
+                logo: "logo"
+            };
+        },
+        template: `
+            <div class="image">
+                <img v-bind:src="'images/' + joke.taza" /> 
+            </div>
+            <div class="content">
+                <h3 v-text="text"></h3>
+                <p v-html="parrafo"></p>
+                <a href="#menu" class="btn">Fichas</a>
+            </div>
+       `
+    }).mount("#acerca");
+    </script>
+    <!-- fin componente header -->
+    <!-- inicio componente menu -->
+    <section class="menu" id="menu"></section>
+    <script>
+        const menu = Vue.createApp({
+        data(){
+            return {
+                text1: "Piezas del ajedrez",
+                text2: "Dama",
+                text3: "Rey",
+                text4: "Alfìl",
+                text5: "Caballo",
+                text6: "Torre",
+                text7: "Peòn",
+                href: "href",
+                class: "class",
+                src: "src",
+                id: "id",
+                src: "src",
+                joke: {
+                    dama: 'dama.jpeg',
+                    rey: 'rey.jpeg',
+                    caballo: 'caballo.jpeg',
+                    alfil: 'alfil.jpeg',
+                    torre: 'torre.jpeg',
+                    peon: 'peon.jpeg',
+                    taza: 'heading.png'
+
+                },
+                section: "flex",
+                logo: "logo"
+            };
+        },
+        template: `
+            <div class="heading">
+                <img v-bind:src="'images/' + joke.taza" alt="">
+                <h3 v-text="text1"></h3>
+            </div>
+            <div class="box-container">
+                <div class="box">
+                <img v-bind:src="'images/' + joke.dama" alt="">
+                <h3 v-text="text2"></h3>
+                </div>
+
+                <div class="box">
+                <img v-bind:src="'images/' + joke.rey" alt="">
+                <h3 v-text="text3"></h3>
+                </div>
+
+                <div class="box">
+                <img v-bind:src="'images/' + joke.alfil" alt="">
+                <h3 v-text="text4"></h3>
+                </div>
+
+                <div class="box">
+                <img v-bind:src="'images/' + joke.caballo" alt="">
+                <h3 v-text="text5"></h3>
+                </div>
+
+                <div class="box">
+                <img v-bind:src="'images/' + joke.torre" alt="">
+                <h3 v-text="text6"></h3>
+                </div>
+
+                <div class="box">
+                <img v-bind:src="'images/' + joke.peon" alt="">
+                <h3 v-text="text7"></h3>
+                </div>
+            </div>
+       `
+    }).mount("#menu");
+    </script>
+    <!-- fin componente menu -->
+    <!-- inicio componente galeria -->
+    <section class="gallery" id="galeria"></section>
+    <script>
+        const galeria = Vue.createApp({
+        data(){
+            return {
+                text: "Campeones",
+                href: "href",
+                class: "class",
+                src: "src",
+                id: "id",
+                src: "src",
+                joke: {
+                    magnus: 'magnus.jpeg',
+                    hikaru: 'hikaru.jpeg',
+                    firuza: 'firuza.jpeg',
+                    din: 'din.jpeg',
+                    gukesh: 'gukesh.jpeg',
+                    ian: 'ian.jpeg',
+                    fichas: 'images.jpeg'
+                },
+                section: "flex",
+                logo: "logo"
+            };
+        },
+        template: `
+            <div class="heading">
+                <img  v-bind:src="'images/' + joke.fichas" alt="">
+                <h3 v-html="text"></h3>
+            </div>
+            <div class="box-container">
+                <img v-bind:src="'images/' + joke.magnus" alt="">
+                <img v-bind:src="'images/' + joke.hikaru" alt="">
+                <img v-bind:src="'images/' + joke.firuza" alt="">
+                <img v-bind:src="'images/' + joke.din" alt="">
+                <img v-bind:src="'images/' + joke.gukesh" alt="">
+                <img v-bind:src="'images/' + joke.ian" alt="">
+            </div>
+       `
+    }).mount("#galeria");
+    </script>
+    <!-- fin componente galeria -->
+    
+
+</body>
+</html>

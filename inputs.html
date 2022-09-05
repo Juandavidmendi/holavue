@@ -8,18 +8,22 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@next"></script>
-    <div id="app">{{ text }}</div>
-
+    <div id="app"></div>
     <script>
-        const vm = Vue.createApp({
-            //opciones app
+        const visualModel = Vue.createApp({
             data(){
-                return{
-                    text: "hola vue"
+                return {
+                    evt: "submit",
+                    contador: 0
                 };
-            }
+            },
+            methods: {
+                enviar(e){
+                    this.contador++;
+                }
+            },
+            template: `<form v-on:[evt].prevent.stop="enviar"><button>{{ contador }}</button></form>`
         }).mount("#app");
-        console.log(vm);
     </script>
 </body>
 </html>
